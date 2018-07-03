@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>登录</title>
+    <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="css/demo.css" />
+    <!--必要样式-->
+    <link rel="stylesheet" type="text/css" href="css/component.css" />
+</head>
+<body>
+    <div class="container demo-1">
+        <div class="content">
+            <div id="large-header" class="large-header">
+                <canvas id="demo-canvas"></canvas>
+                <div class="logo_box">
+                    <h3>欢迎你</h3>
+                    <form action="/login/loginValidate" method="post">
+                        <div class="input_outer">
+                            <span class="u_user"></span>
+                            <input type="text" id="username" class="text" style="color: #FFFFFF !important" placeholder="请输入账户">
+                        </div>
+                        <div class="input_outer">
+                            <span class="us_uer"></span>
+                            <input type="password" id="password" class="text" style="color: #FFFFFF !important; position:absolute; z-index:100;" placeholder="请输入密码">
+                        </div>
+                        <div class="mb2">
+                            <a class="act-but submit" id="loginBtn" href="javascript:;" style="color: #FFFFFF">登录</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/tweenLite.min.js"></script>
+    <script src="js/easePack.min.js"></script>
+    <script src="js/raf.js"></script>
+    <script src="js/demo.js"></script>
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <script>
+        $('#loginBtn').click(function() {
+            var username = $.trim($("#username").val());//获取用户名
+            var password = $.trim($("#password").val());
+            var url = '/login/loginValidate';
+            var param = {
+                "username" : username,
+                "password" : password
+            };
+            $.ajax({
+                type : 'POST',
+                url : url,
+                data : param,
+                dataType : 'json',
+                success : function(data) {
+                    console.log(data);
+                    if (data.code == "000") {
+                        window.location.href = '/main.html';
+                    } else {
+                        layer.msg(data.msg);
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
