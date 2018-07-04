@@ -25,4 +25,9 @@ public class UserController {
     public List<User> findAll() {
         return userMapper.findAll();
     }
+
+    @RequestMapping(value = "/findByUsername")
+    public User findByUsername(String username) {
+        return userMapper.findByUsername(username);
+    }
 }

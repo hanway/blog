@@ -9,8 +9,7 @@ public class User {
     private Integer id;
     private String username;
     private String password;
-    private String lastaccesstime;
-    private String lastaccessip;
+    private String lastlogintime;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -40,21 +39,12 @@ public class User {
         this.password = password;
     }
 
-    @Column(name = "lastaccesstime")
-    public String getLastaccesstime() {
-        return lastaccesstime;
+    @Column(name = "lastlogintime")
+    public String getLastlogintime() {
+        return lastlogintime;
     }
 
-    public void setLastaccesstime(String lastaccesstime) {
-        this.lastaccesstime = lastaccesstime;
-    }
-
-    @Column(name = "lastaccessip")
-    public String getLastaccessip() {
-        return lastaccessip;
-    }
-
-    public void setLastaccessip(String lastaccessip) {
-        this.lastaccessip = lastaccessip;
+    public void setLastlogintime(String lastlogintime) {
+        this.lastlogintime = lastlogintime;
     }
 }
