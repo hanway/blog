@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping(value = "/login")
@@ -27,7 +28,7 @@ public class LoginController {
 
     @RequestMapping(value = "/loginValidate")
     @ResponseBody
-    public Result<User> loginValidate(User user, Model model) {
+    public Result<User> loginValidate(User user, HttpServletRequest request) {
         Result<User> result = new Result<User>();
 
         String username = user.getUsername();
@@ -41,6 +42,8 @@ public class LoginController {
             result.setMsg("请输入密码");
         }
         User data = userMapper.findByUsername(username);
+        HttpSession session = request.getSession();
+        session.setAttribute("user", data);
         if (data == null) {
             result.setCode(ResultCodeEnum.CODE_002.getValue());
             result.setMsg("用户名或密码错误");

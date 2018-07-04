@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="commonHeader(title)">
+    <meta charset="UTF-8" />
+    <title th:text="${title}"></title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="stylesheet" href="css/bootstrap-2.3.1.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+    <div th:fragment="commonNav">
+        <div class="navbar navbar-fixed-top navbar-inverse">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="brand" href="#">Blog</a>
+                    <ul class="nav">
+                        <li class="active"><a href="/booksystem/book/index">首页</a></li>
+                        <!--<li class=""><a href="/booksystem/book/index">书籍管理</a></li>
+                        <li class=""><a href="/booksystem/card/list">借书证管理</a></li>
+                        <li class=""><a href="/booksystem/borrow/list">借书</a></li>
+                        <li class=""><a href="/booksystem/revert/index">还书</a></li>-->
+                    </ul>
+                    <ul class="nav pull-right">
+                        <li><a href="/logout">安全退出</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
