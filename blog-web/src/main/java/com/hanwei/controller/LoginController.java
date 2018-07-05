@@ -1,5 +1,6 @@
 package com.hanwei.controller;
 
+import com.hanwei.common.DateUtils;
 import com.hanwei.enums.ResultCodeEnum;
 import com.hanwei.common.Result;
 import com.hanwei.common.StringUtil;
@@ -23,7 +24,7 @@ public class LoginController {
 
     @RequestMapping(value = "")
     public String login() {
-        return "/login/login";
+        return "/login";
     }
 
     @RequestMapping(value = "/loginValidate")
@@ -48,6 +49,8 @@ public class LoginController {
             result.setCode(ResultCodeEnum.CODE_002.getValue());
             result.setMsg("用户名或密码错误");
         } else {
+            data.setLastlogintime(DateUtils.getNowDateStr());
+            userMapper.saveAndFlush(data);
             result.setCode(ResultCodeEnum.CODE_000.getValue());
             result.setMsg(ResultCodeEnum.CODE_000.getDescription());
             result.setData(data);
