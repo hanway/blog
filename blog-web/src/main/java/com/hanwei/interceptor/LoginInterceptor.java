@@ -15,15 +15,12 @@ public class LoginInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         String url = request.getRequestURI();
-        logger.info("请求的路径为：" + url);
-        logger.info("---------preHandle-----");
         if ("/login/loginValidate".equals(url)) {
             return true;
         }
         User user = (User) request.getSession().getAttribute("user");
-        logger.info("从session获取的user为：" + user);
         if (user == null) {
-            logger.info("-------未登录-------");
+            logger.info("-------获取的session为空，请登录-------");
             response.sendRedirect("/login");
             return false;
         }

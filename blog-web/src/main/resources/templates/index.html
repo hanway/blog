@@ -1,8 +1,91 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="common::commonHeader('主页')">
+<head th:replace="common::commonHeader('Blog')">
+    <link rel="stylesheet" type="text/css" href="/static/css/typo.css"/>
 </head>
 <body>
     <div th:include="common::commonNav"></div>
+
+    <div class="container">
+        <div class="row">
+            <div class="span3">
+                <div style="padding: 8px 0;" class="well">
+                    <ul class="nav nav-list">
+                        <li class="nav-header">${sessionScope.t}</li>
+                        <li class="divider"></li>
+                        <li><a href="#">最新动态</a></li>
+                        <li><a href="#">目标</a></li>
+                        <li><a href="#">讨论区</a></li>
+                        <li><a href="#">文件共享</a></li>
+                        <li><a href="#">联系人</a></li>
+                        <li><a href="#">项目设置</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="span6">
+                <ul class="breadcrumb" style="margin-bottom:0px;border-radius: 3px 3px 0 0;">
+                    <li class="active">
+                        <i class="icon-th"></i>你在想什么？
+                    </li>
+                </ul>
+                <div class="wall">
+                    <!--<form style="margin:0px" id="from"> -->
+                    <textarea id="msg" style="width:415px" rows="3"></textarea>
+                    <!--<input id="nameList" name="nameList" class="hide" />
+                    <input id="username" name="username" class="hide" />
+                    <input id="pid" name="pid" class="hide" />
+                    <input id="users" name="" class="hide" />-->
+                    <button class="btn btn-primary">发布</button>
+                    <!--</form>-->
+                </div>
+
+                <ul class="breadcrumb" style="margin-bottom:0px;border-radius: 3px 3px 0 0;margin-top:20px">
+                    <li class="active">
+                        <i class="icon-th"></i>信息流 <a href="">@我的</a>
+                    </li>
+                </ul>
+
+                <div class="alert well text-center hide" id="alertBar">
+                    <a id="newMsg" href="javascripe:;">你有<span id="msgCount"></span>条新消息  </a>
+                </div>
+
+                <div class="wall messageList">
+                    <div class="loading text-center hide">
+                        <img alt="" src="/static/img/loading.gif" />
+                    </div>
+                    <div class="well">
+                        <h3>哈哈</h3>
+                        <hr/>
+                        <small>---发布人:&nbsp;&nbsp;李四<span class="time" title="刚刚">刚刚</span></small>
+                    </div>
+                    <div class="well">
+                        <h3>哈哈</h3>
+                        <hr/>
+                        <small>---发布人:&nbsp;&nbsp;李四<span class="time" title="刚刚">1分钟前</span></small>
+                    </div>
+                    <div class="well">
+                        <h3>哈哈</h3>
+                        <hr/>
+                        <small>---发布人:&nbsp;&nbsp;李四<span class="time" title="刚刚">昨天</span></small>
+                    </div>
+                    <div class="well">
+                        <h3>哈哈</h3>
+                        <hr/>
+                        <small>---发布人:&nbsp;&nbsp;李四<span class="time" title="刚刚">昨天</span></small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="span3">
+                <div class="box">
+                    <div class="head">我的任务</div>
+                    <ul>
+                        <li><a href=""></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

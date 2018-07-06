@@ -24,9 +24,11 @@ public class WebConfig extends WebMvcConfigurerAdapter implements ApplicationCon
     }
 
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/static/**").addResourceLocations(ResourceUtils.CLASSPATH_URL_PREFIX+"/static/");
-        registry.addResourceHandler("/templates/**").addResourceLocations(ResourceUtils.CLASSPATH_URL_PREFIX+"/templates/");
-        super.addResourceHandlers(registry);
+        //将templates目录下的CSS、JS文件映射为静态资源，防止Spring把这些资源识别成thymeleaf模版
+        registry.addResourceHandler("/static/**.js").addResourceLocations("classpath:/static/");
+        registry.addResourceHandler("/static/**.css").addResourceLocations("classpath:/static/");
+        //其他静态资源
+        registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");
     }
 
     @Override
