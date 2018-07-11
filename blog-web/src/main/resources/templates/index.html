@@ -11,7 +11,7 @@
             <div class="span3">
                 <div style="padding: 8px 0;" class="well">
                     <ul class="nav nav-list">
-                        <li class="nav-header">${sessionScope.t}</li>
+                        <li class="nav-header" th:text="${session.user.username}"></li>
                         <li class="divider"></li>
                         <li><a href="#">最新动态</a></li>
                         <li><a href="#">目标</a></li>
@@ -31,18 +31,14 @@
                 </ul>
                 <div class="wall">
                     <!--<form style="margin:0px" id="from"> -->
-                    <textarea id="msg" style="width:415px" rows="3"></textarea>
-                    <!--<input id="nameList" name="nameList" class="hide" />
-                    <input id="username" name="username" class="hide" />
-                    <input id="pid" name="pid" class="hide" />
-                    <input id="users" name="" class="hide" />-->
+                    <textarea id="msg" style="width:100%; resize:none" rows="4"></textarea>
                     <button class="btn btn-primary">发布</button>
                     <!--</form>-->
                 </div>
 
                 <ul class="breadcrumb" style="margin-bottom:0px;border-radius: 3px 3px 0 0;margin-top:20px">
                     <li class="active">
-                        <i class="icon-th"></i>信息流 <a href="">@我的</a>
+                        <i class="icon-th"></i>信息流 <a href="#">@我的</a>
                     </li>
                 </ul>
 
