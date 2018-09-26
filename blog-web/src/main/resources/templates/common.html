@@ -16,7 +16,7 @@
                         <li class="active"><a href="/index">首页</a></li>
                     </ul>-->
                     <ul class="nav pull-right">
-                        <li><a href="#" th:text="'欢迎您，' + ${session.user.username}"></a></li>
+                        <li><a href="#" th:text="'欢迎您，' + ${session.user.nickname}"></a></li>
                         <li><a href="/logout">安全退出</a></li>
                     </ul>
                 </div>
