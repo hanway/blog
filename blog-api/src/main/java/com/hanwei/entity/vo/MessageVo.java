@@ -1,18 +1,14 @@
-package com.hanwei.entity;
+package com.hanwei.entity.vo;
 
-import javax.persistence.*;
+import java.sql.Timestamp;
 
-@Entity
-@Table(name = "message")
-public class Message {
+public class MessageVo {
 
     private Integer id;
     private String content;//内容
     private String createtime;//创建时间
-    private Integer userid;//创建用户
+    private String username;//创建用户
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Integer getId() {
         return id;
     }
@@ -21,7 +17,6 @@ public class Message {
         this.id = id;
     }
 
-    @Column(name = "content")
     public String getContent() {
         return content;
     }
@@ -30,7 +25,6 @@ public class Message {
         this.content = content;
     }
 
-    @Column(name = "createtime")
     public String getCreatetime() {
         return createtime;
     }
@@ -39,12 +33,11 @@ public class Message {
         this.createtime = createtime;
     }
 
-    @Column(name = "userid")
-    public Integer getUserid() {
-        return userid;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserid(Integer userid) {
-        this.userid = userid;
+    public void setUsername(String username) {
+        this.username = username;
     }
 }

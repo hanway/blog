@@ -6,10 +6,11 @@ import javax.persistence.*;
 @Table(name = "user")
 public class User {
 
-    private Integer id;
-    private String username;
-    private String password;
-    private String lastlogintime;
+    private Integer id;//id自增
+    private String username;//用户名
+    private String nickname;//昵称
+    private String password;//密码
+    private String lastlogintime;//最后登录时间
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -46,5 +47,14 @@ public class User {
 
     public void setLastlogintime(String lastlogintime) {
         this.lastlogintime = lastlogintime;
+    }
+
+    @Column(name = "nickname")
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
     }
 }
