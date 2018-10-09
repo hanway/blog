@@ -1,11 +1,11 @@
 package com.hanwei.dao;
 
 import com.hanwei.entity.User;
-import org.springframework.data.jpa.repository.JpaRepository;
+import tk.mybatis.mapper.common.Mapper;
 
 import java.util.List;
 
-public interface UserMapper extends JpaRepository<User, Integer> {
+public interface UserMapper extends Mapper<User> {
 
     List<User> findAll();
 

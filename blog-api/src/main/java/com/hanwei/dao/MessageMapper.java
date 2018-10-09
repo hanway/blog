@@ -1,7 +1,7 @@
 package com.hanwei.dao;
 
 import com.hanwei.entity.Message;
-import org.springframework.data.jpa.repository.JpaRepository;
+import tk.mybatis.mapper.common.Mapper;
 
-public interface MessageMapper extends JpaRepository<Message, Integer> {
+public interface MessageMapper extends Mapper<Message> {
 }

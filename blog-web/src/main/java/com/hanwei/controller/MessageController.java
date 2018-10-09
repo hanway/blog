@@ -38,7 +38,7 @@ public class MessageController {
         message.setUserid(userid);
         message.setCreatetime(sdf.format(new Date()));
 
-        messageMapper.save(message);
+        messageMapper.insertSelective(message);
         result.setCode(ResultCodeEnum.CODE_000.getValue());
         result.setMsg(ResultCodeEnum.CODE_000.getDescription());
         return "redirect:/main";

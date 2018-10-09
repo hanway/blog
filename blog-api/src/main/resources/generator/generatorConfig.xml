@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+	<properties resource="application.properties" />
+	<context id="MysqlContext" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+		<property name="beginningDelimiter" value="`" />
+		<property name="endingDelimiter" value="`" />
+		<property name="mergeable" value="false" />
+
+		<plugin type="tk.mybatis.mapper.generator.MapperPlugin">
+			<property name="mappers" value="tk.mybatis.mapper.common.Mapper" />
+		</plugin>
+
+		<commentGenerator>
+			<property name="suppressDate" value="true" />
+			<property name="suppressAllComments" value="true" />
+			<property name="javaFileEncoding" value="UTF-8" />
+		</commentGenerator>
+
+		<!-- 连接配置 -->
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/archive" userId="root" password="root" />
+
+		<!-- javaModelGenerator是模型的生成信息，这里将指定这些Java model类的生成路径 -->
+		<javaModelGenerator targetPackage="com.zima.archive.model" targetProject="src/main/java">
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+
+		<!-- 生成Mapper 配置文件 -->
+		<sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources" />
+
+		<javaClientGenerator type="XMLMAPPER" targetPackage="com.zima.archive.dao" targetProject="src/main/java/">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+		<!-- oracle 使用 schema 对应 用户名称空间 mysql 使用 catalog 对应 数据库 -->
+		<table schema="" tableName="fm_record_relation"
+			domainObjectName="fmRecordRelation" enableCountByExample="false"
+			enableDeleteByExample="false" enableUpdateByExample="false"
+			selectByExampleQueryId="false" enableSelectByExample="false"></table>
+		<!-- <table schema="" tableName="user_role_sponsor_fund" domainObjectName="UserRoleSponsorFund" 
+			enableCountByExample="false" enableDeleteByExample="false" enableUpdateByExample="false" 
+			selectByExampleQueryId="false" enableSelectByExample="false"></table> <table 
+			schema="" tableName="user_role_sponsor_xuexin" domainObjectName="UserRoleSponsorXuexin" 
+			enableCountByExample="false" enableDeleteByExample="false" enableUpdateByExample="false" 
+			selectByExampleQueryId="false" enableSelectByExample="false"></table> <table 
+			schema="" tableName="user_role_sponsor_identity" domainObjectName="UserRoleSponsorIdentity" 
+			enableCountByExample="false" enableDeleteByExample="false" enableUpdateByExample="false" 
+			selectByExampleQueryId="false" enableSelectByExample="false"></table> <table 
+			schema="" tableName="user_role_sponsor_phone_operators" domainObjectName="UserRoleSponsorPhoneOperators" 
+			enableCountByExample="false" enableDeleteByExample="false" enableUpdateByExample="false" 
+			selectByExampleQueryId="false" enableSelectByExample="false"></table> -->
+	</context>
+</generatorConfiguration>

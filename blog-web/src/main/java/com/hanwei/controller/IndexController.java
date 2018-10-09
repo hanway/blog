@@ -31,11 +31,11 @@ public class IndexController {
     public String index(Model model) throws ParseException {
         List<MessageVo> messageVoList = new ArrayList<MessageVo>();
 
-        List<Message> messageList = messageMapper.findAll();
+        List<Message> messageList = messageMapper.selectAll();
 
         for (Message message : messageList) {
             int userid = message.getUserid();
-            User user = userMapper.findOne(userid);
+            User user = userMapper.selectByPrimaryKey(userid);
 
             MessageVo messageVo = new MessageVo();
             messageVo.setContent(message.getContent());

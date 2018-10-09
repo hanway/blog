@@ -49,7 +49,7 @@ public class LoginController {
             result.setMsg("用户名或密码错误");
         } else {
             data.setLastlogintime(DateUtils.getNowDateStr());
-            userMapper.saveAndFlush(data);
+            userMapper.insertSelective(data);
             result.setCode(ResultCodeEnum.CODE_000.getValue());
             result.setMsg(ResultCodeEnum.CODE_000.getDescription());
             result.setData(data);
