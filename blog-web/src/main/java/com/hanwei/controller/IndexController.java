@@ -37,7 +37,7 @@ public class IndexController {
 
         List<Message> messageList = messageMapper.selectAll();
 
-        logger.info("IndexController---messageList.size:" + messageList.size());
+        logger.info("IndexController>>>>---messageList.size:" + messageList.size());
 
         for (Message message : messageList) {
             int userid = message.getUserid();
