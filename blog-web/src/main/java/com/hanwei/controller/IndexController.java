@@ -6,6 +6,8 @@ import com.hanwei.dao.UserMapper;
 import com.hanwei.entity.Message;
 import com.hanwei.entity.User;
 import com.hanwei.entity.vo.MessageVo;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,6 +22,8 @@ import java.util.List;
 @RequestMapping(value = "/main")
 public class IndexController {
 
+    private final Logger logger = LoggerFactory.getLogger(getClass());
+
     @Autowired
     private MessageMapper messageMapper;
     @Autowired
@@ -32,6 +36,8 @@ public class IndexController {
         List<MessageVo> messageVoList = new ArrayList<MessageVo>();
 
         List<Message> messageList = messageMapper.selectAll();
+
+        logger.info("IndexController---messageList.size:" + messageList.size());
 
         for (Message message : messageList) {
             int userid = message.getUserid();
